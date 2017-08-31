@@ -4,8 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/content_test3a"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.gouxinyue.myapplication.TestActivity3"
     tools:showIn="@layout/activity_test3">
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        tools:layout_editor_absoluteX="293dp"
+        tools:layout_editor_absoluteY="0dp"
+        />
+    <com.example.gouxinyue.myapplication.MyView3
+        android:id="@+id/caocao"
+        android:layout_width="300dp"
+        android:layout_height="300dp" />
 
 </android.support.constraint.ConstraintLayout>

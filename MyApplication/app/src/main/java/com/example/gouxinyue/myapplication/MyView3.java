@@ -6,13 +6,18 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.RectF;
+import android.support.annotation.Nullable;
+import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
+
+import java.util.Random;
 
 /**
  * Created by gouxinyue on 2017/8/22.
  */
 
-public class MyView2 extends View {
+public class MyView3 extends View {
     private Paint mPaintCircle = new Paint();
     private Paint mPaintArc = new Paint();
     private Paint mPaint1 = new Paint();
@@ -36,8 +41,9 @@ public class MyView2 extends View {
 
 
     final float rad2deg = (float) (180.0f / Math.PI);
-
-    public MyView2(Context context) {
+    final float num[]=new float[]{0f,90f,180f,270f,360f};
+    Random mRandom=new Random();
+    public MyView3(Context context) {
         super(context);
         mPaintCircle.setAntiAlias(true);
         mPaintCircle.setColor(Color.WHITE);
@@ -67,17 +73,30 @@ public class MyView2 extends View {
         mPath2.lineTo(40, 100);
         mPath2.lineTo(0, 80);
         mPath2.close();
+
+    }
+
+    public MyView3(Context context, @Nullable AttributeSet attrs) {
+        super(context,attrs);
+    }
+
+    public void setOrientation(){
+
+        mOrientation[0]=num[mRandom.nextInt(4)];
+        invalidate();
+
+    }
+    @Override
+    protected void onDraw(Canvas canvas) {
         mOrientation[0] = (mOrientation[0] * rad2deg);
         mOrientation[1] = (mOrientation[1] * rad2deg);
         mOrientation[2] = -(mOrientation[2] * rad2deg);
-    }
-
-    @Override
-    protected void onDraw(Canvas canvas) {
         canvas.drawColor(Color.BLACK);
 
         int w = getWidth();
         int h = getHeight();
+        Log.v("xxxx", "width = " + w);
+        Log.v("xxxx", "height = " + h);
         int cx = w / 2;
         int cy = h / 2;
 

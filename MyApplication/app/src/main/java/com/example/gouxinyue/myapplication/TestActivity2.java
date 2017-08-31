@@ -41,8 +41,15 @@ public class TestActivity2 extends Activity {
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setResult(RESULT_FIRST_USER,new Intent());
-                finish();
+                //setResult(RESULT_FIRST_USER,new Intent());
+                //finish();
+                Random random=new Random();
+                int [] mun=new int[mCollectView.COUNT];
+                for(int i=0;i<mCollectView.COUNT;i++){
+                    mun[i]=random.nextInt(mCollectView.MAX_DIS);
+                }
+                mCollectView.setDistance(mun);
+                mCollectView.invalidate();
             }
         });
     }

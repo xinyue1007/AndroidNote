@@ -92,8 +92,12 @@ public class MyView extends View  {
 		super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 	}
 
-	private void setTimes(int times){
-		mTimes=times;
+	public void setTimes(int times){
+
+		if(times>0)
+			mTimes=times;
+		else
+			mTimes=1;
 		invalidate();
 	}
 

@@ -14,10 +14,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
 
+import java.util.Random;
+
 public class TestActivity extends Activity {
     private Button mButton;
     private Context mContext;
-
+    private MyView mMyView;
+    Random mRandom=new Random();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +36,7 @@ public class TestActivity extends Activity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
        // setSupportActionBar(toolbar);
         mButton = (Button) findViewById(R.id.button);
+        mMyView= (MyView) findViewById(R.id.myview);
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,9 +48,11 @@ public class TestActivity extends Activity {
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                mMyView.setTimes( mRandom.nextInt(10));
                // setResult(1,new Intent());
                 //finish();
-                startActivityForResult(new Intent(TestActivity.this,TestActivity2.class),10);
+                //startActivityForResult(new Intent(TestActivity.this,TestActivity2.class),10);
             }
         });
     }
